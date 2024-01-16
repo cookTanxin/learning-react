@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://cdn.bootcdn.net/ajax/libs/react/17.0.2/umd/react.development.min.js"></script>
+    <script src="https://cdn.bootcdn.net/ajax/libs/react-dom/17.0.2/umd/react-dom.development.js"></script>
+    <script src="https://cdn.bootcdn.net/ajax/libs/babel-standalone/7.22.17/babel.min.js"></script>
+</head>
+<body>
+<div id="root"></div>
+<script type="text/babel">
+    class App extends React.Component{
+      // 构造器
+      constructor() {
+        // 要继承父级 必须要写 super 关键字
+        super();
+        this.state = {
+          message:"hello react",
+          city:'beijing'
+        }
+      }
+
+      // 渲染函数
+      render() {
+        return (
+          <div>
+            <h2>{this.state.message}</h2>
+            <h3>{this.state.city}</h3>
+            {/* 这是一个注释 */}
+            {/* this is annotation*/}
+            <button onClick={this.changeData.bind(this)}>改变数据</button>
+          </div>
+        )
+      }
+      // 改变数据
+      changeData() {
+        this.setState({
+          message: 'hello chengdu',
+          city: 'chengdu'
+        })
+      }
+    }
+    ReactDOM.render(<App/>,document.getElementById('root'))
+</script>
+</body>
+</html>
