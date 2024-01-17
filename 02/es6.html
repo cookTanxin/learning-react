@@ -13,8 +13,9 @@
         this.age = age
       }
       // 方法
-      running() {
+      running(city) {
         console.log('跑路'+this.name)
+        console.log(city)
       }
     }
     class Student extends Person{
@@ -34,7 +35,7 @@
     // call 改变this 指向 apply 和 call 都是可以调用函数 只是传递的参数不一样 一个是 单个参数一个是数组的形式
     // 不同点：入参不同。apply只能两个，新的obj和一个数组arg。call可以多个，新的obj和arg1，arg2…
     // fun.call(obj,5,6,7,8)
-    fun.apply(obj,[1,2,3])
+    fun.apply(obj,['成都','北京']) // 跑路+wenfu + 成都
     // bind 也是改变this指向 是返回一个函数
     // fun = fun.bind(obj)
     // fun()
