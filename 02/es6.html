@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>语法补充</title>
+</head>
+<body>
+<script>
+    class Person {
+      // 构造器
+      constructor(name,age) {
+        this.name = name
+        this.age = age
+      }
+      // 方法
+      running() {
+        console.log('跑路'+this.name)
+      }
+    }
+    class Student extends Person{
+      constructor(name,age,id) {
+        super(name,age);
+        this.id = id
+      }
+    }
+
+    const stu = new Student('lisa',28,110)
+    console.log(stu)
+    // test code
+    let obj = {
+      name:'wenfu'
+    }
+    let fun = stu.running
+    // call 改变this 指向 apply 和 call 都是可以调用函数 只是传递的参数不一样 一个是 单个参数一个是数组的形式
+    // 不同点：入参不同。apply只能两个，新的obj和一个数组arg。call可以多个，新的obj和arg1，arg2…
+    // fun.call(obj,5,6,7,8)
+    fun.apply(obj,[1,2,3])
+    // bind 也是改变this指向 是返回一个函数
+    // fun = fun.bind(obj)
+    // fun()
+</script>
+</body>
+</html>
