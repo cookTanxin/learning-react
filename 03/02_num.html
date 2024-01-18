@@ -12,9 +12,10 @@
     <script type="text/babel">
         class App extends React.Component{
           // 构造器
-          constructor() {
+          constructor(props) {
+            // 传递 props 是为了确保你的组件可以正常工作并能够访问父组件传递的属性。
             // 继承父类 必须调用super
-            super();
+            super(props);
             this.state = {
               count:0
             }

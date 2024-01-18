@@ -12,8 +12,9 @@
     <script type="text/babel">
         class App extends React.Component{
           // 构造函数
-          constructor() {
-            super();
+          constructor(props) {
+            // 传递 props 是为了确保你的组件可以正常工作并能够访问父组件传递的属性。
+            super(props);
             // 定义数据
             this.state = {
               movieList: ['三和大神','动物城','肖申克的救赎','我不是药神']

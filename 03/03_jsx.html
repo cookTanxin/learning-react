@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="app"></div>
+<script src="../react/react.development.js"></script>
+<script src="../react/react-dom.development.js"></script>
+<script src="../react/babel.min.js"></script>
+<script type="text/babel">
+    // APP 组件
+    class App extends React.Component{
+      // 构造器
+      constructor(props) {
+        // why use props 因为要继承父类的属性
+        super(props);
+        // 数据
+        this.state = {
+          stateOne:'string 可以显示',
+          stateTwo: 15,
+          stateThree: ['chengdu','beijing','hongKong'],
+          stateFour: null,
+          stateFive: undefined,
+          stateSix: false,
+          stateSeven: 10,
+          stateEight: 14
+        }
+      }
+      // 渲染函数
+      render() {
+        return (
+          <div>
+            {/*可显示变量*/}
+            {/* String */}
+            <h1>{this.state.stateOne}</h1>
+            {/*Number*/}
+            <h1>{this.state.stateTwo}</h1>
+            {/*Array*/}
+            <h1>{this.state.stateThree}</h1>
+            {/*不显示变量*/}
+            {/*null undefined Boolean 这三个参数都不会渲染数据 如果要渲染数据 需要转换成字符串*/}
+            <h1>{this.state.stateFour}</h1>
+            <h1>{this.state.stateFive}</h1>
+            <h1>{this.state.stateSix}</h1>
+            <h3>使用运算表达式</h3>
+            <h3>{this.state.stateSeven + this.state.stateEight}</h3>
+            <h3>三目运算</h3>
+            <h3>{this.state.stateSix?'正确':'错误'}</h3>
+            <h3>执行一个函数</h3>
+            <h3>{this.cityWord()}</h3>
+            <h3>条件与或非</h3>
+            <h3>{this.state.stateSix && 'chengdu is mode city'}</h3>
+            {this.state.stateSix?<h4>你好</h4>:null}
+          </div>
+        )
+      }
+      // 执行一个函数
+      cityWord () {
+        return this.state.stateThree.join('****')
+      }
+    }
+    // 渲染组件
+    ReactDOM.render(<App/>,document.getElementById('app'))
+</script>
+</body>
+</html>
