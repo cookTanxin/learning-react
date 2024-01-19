@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="app"></div>
+<script src="../react/react.development.js"></script>
+<script src="../react/react-dom.development.js"></script>
+<script src="../react/babel.min.js"></script>
+<script type="text/babel">
+    class App extends React.Component{
+      constructor(props) {
+        super(props);
+        this.state = {
+          isLogin: false
+        }
+        // 显示绑定 因为bind是返回一个新的函数
+        this.login = this.login.bind(this)
+      }
+      render () {
+        let {isLogin} = this.state
+        let showTag = isLogin?'block':'none'
+        return (
+          <div>
+            <h1 style={{display: showTag}}>欢迎登录</h1>
+            <button onClick={this.login}>{isLogin?'退出':'登录'}</button>
+          </div>
+        )
+      }
+      login () {
+        this.setState({
+          isLogin: !this.state.isLogin
+        })
+      }
+    }
+    ReactDOM.render(<App/>,document.getElementById('app'))
+</script>
+</body>
+</html>

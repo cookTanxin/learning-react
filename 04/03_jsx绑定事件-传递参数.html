@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="app"></div>
+<script src="../react/react.development.js"></script>
+<script src="../react/react-dom.development.js"></script>
+<script src="../react/babel.min.js"></script>
+<script type="text/babel">
+    class App extends React.Component {
+      constructor(props) {
+        super(props);
+        // 数据
+        this.state = {
+          movieList: ['大话西游','zoo city','西游记']
+        }
+        // 显示绑定this
+        this.sendData = this.sendData.bind(this)
+      }
+      render () {
+        let {movieList} = this.state
+        return (
+          <div>
+            {/*传递数据对象*/}
+            <button onClick={this.sendData}>send</button>
+            <ul>
+              {movieList.map((item,index,arr) => <li onClick={(e) => this.selectMovie(item,index,arr,e)}>{item}</li>)}
+            </ul>
+          </div>
+        )
+      }
+      // 传递数据对象
+      sendData (event) {
+        console.log('传递了一个数据对象')
+        console.log(event)
+      }
+      // 选中电影
+      selectMovie (item,index,arr,event) {
+        console.log(item)
+        console.log(index)
+        console.log(arr)
+        console.log(event)
+      }
+    }
+    ReactDOM.render(<App/>,document.getElementById('app'))
+</script>
+</body>
+</html>

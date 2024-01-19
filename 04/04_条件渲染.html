@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="app"></div>
+<script src="../react/react.development.js"></script>
+<script src="../react/react-dom.development.js"></script>
+<script src="../react/babel.min.js"></script>
+<script type="text/babel">
+    class App extends React.Component {
+      constructor(props) {
+        super(props);
+        this.state = {
+          isLogin: false
+        }
+      }
+      // 渲染数据
+      render () {
+        let {isLogin} = this.state
+        // 方案一通过if 条件语句进行判断
+        let welCom = null
+        let btnText = null
+        if(isLogin) {
+          welCom = <h1>欢迎回来🇭🇰</h1>
+          btnText = '退出'
+        } else {
+          welCom = <h1>立即登录🇮🇳</h1>
+          btnText = '登录'
+        }
+        return (
+          <div>
+            {welCom}
+            {/*if 条件语句*/}
+            <button onClick={() => this.loginAccount()}>{btnText}</button>
+            {/*三目运算*/}
+            <button onClick={() => {this.loginAccount()}}>{isLogin?'退出':'登录'}</button>
+            {/*
+                逻辑与 &&
+                当一个条件不成立后面的条件都不会判断了
+            */}
+            <h1>{isLogin && '用户登录了'}</h1>
+            {isLogin && <h2>user login</h2>}
+          </div>
+        )
+      }
+      // 登录
+      loginAccount () {
+        this.setState({
+          isLogin: !this.state.isLogin
+        })
+      }
+    }
+    ReactDOM.render(<App/>,document.getElementById('app'))
+</script>
+</body>
+</html>

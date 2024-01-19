@@ -28,6 +28,7 @@
                 {/*箭头函数*/}
                 <button onClick={this.reduce}>-</button>
                 {/*直接传入一个箭头函数 在箭头函数调用执行的函数*/}
+                <button onClick={(e) => this.showData(e)}>箭头函数调用</button>
               </div>
             )
           }
@@ -42,6 +43,12 @@
             console.log(this.state.count)
           }
           // 直接在jsx中传入箭头函数
+          showData (event) {
+            console.log('箭头函数调用')
+            console.log('事件对象')
+            console.log(event)
+            console.log(this.state.count)
+          }
         }
         ReactDOM.render(<App/>,document.getElementById('app'))
     </script>
