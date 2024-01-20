@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        table{
+            /*border: 1px solid #f5f5f5;*/
+            border-collapse: collapse;
+        }
+        thead{
+            background-color: #f5f5f5;
+        }
+        thead tr td{
+            padding: 20px;
+            text-align: center;
+            border: 1px solid #e2e2e2;
+        }
+        tbody tr td{
+            padding: 10px;
+            text-align: center;
+            border: 1px solid #e2e2e2;
+        }
+        tfoot tr td{
+            padding: 10px;
+            text-align: center;
+            border: 1px solid #e2e2e2;
+        }
+        .bookValue{
+            margin: 0 12px;
+        }
+    </style>
+</head>
+<body>
+<div id="app"></div>
+<script src="../react/react.development.js"></script>
+<script src="../react/react-dom.development.js"></script>
+<script src="../react/babel.min.js"></script>
+<script src="format-tool.js"></script>
+<script type="text/babel">
+    class App extends React.Component {
+      // 构造函数
+      constructor(props) {
+        super(props)
+        // 数据
+        this.state = {
+          bookList:[
+            {
+              id: 1,
+              name: '《算法导论》',
+              date: '2006-9',
+              price: 85.00,
+              count: 2
+            },
+            {
+              id: 2,
+              name: '《UNIX编程艺术》',
+              date: '2006-2',
+              price: 59.00,
+              count: 1
+            },
+            {
+              id: 3,
+              name: '《编程珠玑》',
+              date: '2008-10',
+              price: 39.00,
+              count: 1
+            },
+            {
+              id: 4,
+              name: '《代码大全》',
+              date: '2006-3',
+              price: 128.00,
+              count: 1
+            },
+          ]
+        }
+      }
+      // 渲染有书籍的情况
+      renderBook () {
+        let {bookList} = this.state
+        return (
+          <tbody>
+          {
+            bookList.map((item,index) => {
+              return (
+                <tr>
+                  <td>{index + 1}</td>
+                  <td>{item.name}</td>
+                  <td>{item.date}</td>
+                  <td>{formatPrice(item.price)}</td>
+                  <td>
+                    <button disabled={item.count<=1} onClick={() => {this.changeCount(index,-1)}}>-</button>
+                    <span className="bookValue">{item.count}</span>
+                    <button onClick={() => {this.changeCount(index,1)}}>+</button>
+                  </td>
+                  <td>
+                    <button onClick={() => {this.removeBook(item)}}>移除</button>
+                  </td>
+                </tr>
+              )
+            })
+          }
+          </tbody>
+
+        )
+      }
+      // 渲染没有书籍的情况
+      renderEmpty () {
+        return (
+          <tbody>
+            <tr>
+              <td colSpan="6">没有数据了</td>
+            </tr>
+          </tbody>
+        )
+      }
+      // 渲染函数
+      render () {
+
+        return (
+          <div>
+            <table>
+              <thead>
+                  <tr>
+                    <td>*</td>
+                    <td>书籍名称</td>
+                    <td>出版日期</td>
+                    <td>价格</td>
+                    <td>购买数量</td>
+                    <td>操作</td>
+                  </tr>
+              </thead>
+
+              {this.state.bookList.length>0?this.renderBook():this.renderEmpty()}
+              {
+                this.state.bookList.length>0? (<tfoot>
+                <tr>
+                  <td colSpan="6">合计：{formatPrice(this.computedPrice())}</td>
+                </tr>
+                </tfoot>):''
+              }
+
+            </table>
+          </div>
+        )
+      }
+
+      // 移除数据
+      removeBook(item) {
+        // React中设计原则: state中的数据的不可变性;
+        this.setState({
+          bookList: this.state.bookList.filter((bookItem) => bookItem.id!=item.id)
+        })
+      }
+      // 计算总价
+      computedPrice () {
+        return this.state.bookList.reduce((pre,item,index,arr) => {
+          return pre += item.price * item.count
+        },0)
+      }
+      // 改变数字
+      changeCount (index,count) {
+        // bad code
+        // react 中的设计原则 state 中的数据不可变性
+        // this.state.bookList[index].count+=count
+        // this.setState({
+        //   bookList: this.state.bookList
+        // })
+        // 使用一个浅拷贝 拷贝一份数据
+        const bookList = [...this.state.bookList]
+        bookList[index].count+=count
+        // 更新ui视图
+        this.setState({
+          bookList
+        })
+      }
+    }
+
+    ReactDOM.render(<App/>, document.getElementById('app'))
+</script>
+</body>
+</html>
