@@ -54,4 +54,10 @@ export default class App extends Component{
   componentDidUpdate() {
     console.log('执行了 componentDidUpdate 数据更新函数')
   }
+  getSnapshotBeforeUpdate(prevProps, prevState) {
+    console.log('更新之前 获取更新之前的数据')
+    console.log(prevState)
+    console.log('更新之前 获取更新之前的数据')
+    return prevState
+  }
 }
