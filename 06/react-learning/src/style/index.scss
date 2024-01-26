@@ -1,0 +1,19 @@
+.nav-content{
+  width: 100%;
+  display: flex;
+  text-align: center;
+  line-height: 40px;
+  .nav-center{
+    flex: 1;
+    height: 40px;
+    background-color: green;
+  }
+  .nav-left{
+    background-color: skyblue;
+    height: 40px;
+  }
+  .nav-right{
+    height: 40px;
+    background-color: orange;
+  }
+}
