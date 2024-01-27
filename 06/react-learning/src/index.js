@@ -3,7 +3,7 @@ import React from 'react'
 // 导入react-dom
 import reactDOM from 'react-dom'
 // app
-import App from './07跨组件的通信/App'
+import App from './08setState异步/App'
 
 import './style/index.scss'
 
