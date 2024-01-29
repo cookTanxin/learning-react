@@ -8,7 +8,7 @@ export default class App extends Component {
       password:'',
       gender:'',
       fruits:[],
-      country:['hg']
+      country:[]
     }
   }
   render(){
@@ -97,28 +97,11 @@ export default class App extends Component {
           </div>
           <div>
             选择你的国家
-            {/*<select multiple={true} name='country' defaultValue={[]}>*/}
-            {/*  <option value='china'>中国</option>*/}
-            {/*  <option value='taiwan'>台湾</option>*/}
-            {/*  <option value='Japan'>日本</option>*/}
-            {/*  <option value='Korean'>韩国</option>*/}
-            {/*</select>*/}
-            <select
-              multiple={true}
-              value={this.state.country}
-              onChange={e => {
-                const options = [...e.target.selectedOptions];
-                const values = options.map(option => option.value);
-                // setSelectedVegs(values);
-                console.log(this)
-                this.setState({
-                  country: values
-                })
-              }}
-            >
-              <option value="hg">黄瓜</option>
-              <option value="ym">玉米</option>
-              <option value="fq">番茄</option>
+            <select multiple={true} name='country' value={this.state.country} onChange={e => this.changeCountry(e)}>
+              <option value='china'>中国</option>
+              <option value='taiwan'>台湾</option>
+              <option value='Japan'>日本</option>
+              <option value='Korean'>韩国</option>
             </select>
           </div>
           <button type='submit'>提交数据</button>
@@ -175,18 +158,10 @@ export default class App extends Component {
   }
   // 选择国家 因为是数组的原因 是引用类型 因为react数据不可变性 需要浅拷贝一份数据
   changeCountry(e) {
-    console.log(e.target.value)
-    // 新数据
-    let newCountry = [...this.state.country]
-    // 判断用户选择的数据是否在原始数组中
-    let countryIndex = newCountry.indexOf(e.target.value)
-    if(countryIndex === -1) {
-      newCountry.push(e.target.value)
-    } else {
-      newCountry.splice(countryIndex,1)
-    }
+    const options = [...e.target.selectedOptions];
+    const values = options.map(option => option.value);
     this.setState({
-      country: newCountry
+      country: values
     })
   }
 }
