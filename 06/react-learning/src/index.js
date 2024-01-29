@@ -3,7 +3,7 @@ import React from 'react'
 // 导入react-dom
 import reactDOM from 'react-dom'
 // app
-import App from './12全局事件传递/App'
+import App from './14受控组件/App'
 
 import './style/index.scss'
 
