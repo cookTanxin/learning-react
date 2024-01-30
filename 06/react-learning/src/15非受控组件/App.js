@@ -4,7 +4,8 @@ export default class App extends PureComponent {
   constructor(props) {
     super(props);
 
-    this.usernameRef = createRef();
+    // this.usernameRef = createRef();
+    this.usernameRef = createRef()
   }
 
   render() {

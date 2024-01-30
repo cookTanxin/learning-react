@@ -20,6 +20,7 @@ export default class App extends Component {
           <li>密码:{this.state.password}</li>
           <li>性别:{this.state.gender}</li>
           <li>品牌:{this.state.fruits.join('*')}</li>
+          <li>国家:{this.state.country.join('*')}</li>
         </ul>
         <form onSubmit={ e => this.submitData(e)}>
           <div>
