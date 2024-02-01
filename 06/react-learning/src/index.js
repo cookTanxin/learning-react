@@ -3,7 +3,7 @@ import React from 'react'
 // 导入react-dom
 import reactDOM from 'react-dom'
 // app
-import App from './16高阶函数/06生命周期劫持'
+import App from './18react组件样式/04cssinjs'
 
 import './style/index.scss'
 

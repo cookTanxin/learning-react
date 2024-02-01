@@ -40,3 +40,31 @@
     margin: 0 20px;
   }
 }
+
+.model-container{
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0,0,0,.8);
+  .inner-content{
+    width: 200px;
+    height: 200px;
+    background-color: #fff;
+    border-radius: 5px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    .closeIcon{
+      width: 10px;
+      height: 10px;
+      background-color: orange;
+      cursor:pointer;
+      position: absolute;
+      right: 10px;
+      top: 10px;
+    }
+  }
+}

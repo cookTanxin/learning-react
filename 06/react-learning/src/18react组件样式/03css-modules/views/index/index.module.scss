@@ -1,0 +1,18 @@
+.indexpage{
+  h2{
+    font-size: 25px;
+    color: orange;
+  }
+  .listItem{
+    border: 1px solid red;
+    color: orange;
+    cursor: pointer;
+    &.active{
+      color: rebeccapurple;
+    }
+  }
+}
+
+.commonPage {
+  text-shadow: #ef8943;
+}
