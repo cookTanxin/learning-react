@@ -6,7 +6,7 @@ export default class IndexPage extends PureComponent {
   constructor(props) {
     super(props);
     this.state = {
-      movieList: ['hello','close','apple'],
+      movieList: ['hello','close','apples'],
       currentActive:0
     }
   }
