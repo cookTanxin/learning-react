@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "craco-less": "^3.0.1",
     "events": "^3.3.0"
   }
 }

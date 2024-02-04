@@ -1,4 +1,4 @@
-import React, {Component, PureComponent} from 'react'
+import React, { PureComponent} from 'react'
 
 import styled from "styled-components";
 // 可以使用嵌套 类似scss
@@ -23,9 +23,6 @@ const IndexWrapper = styled.div`
 `
 // 导入首页样式
 export default class IndexPage extends PureComponent {
-  constructor(props) {
-    super(props);
-  }
 
   render() {
     return (

@@ -1,0 +1,16 @@
+.antd_content{
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  .antd_comment{
+    border: 1px solid #f5f5f5;
+    padding: 10px;
+    border-radius: 10px;
+    .antd_comment_list{
+      margin: 10px 0;
+    }
+  }
+}
