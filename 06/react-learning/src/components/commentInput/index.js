@@ -20,10 +20,11 @@ class CommentInput extends PureComponent {
                         value={this.state.content}
                         placeholder='请输入留言'
                         onChange={e => this.changeComment(e)}
+
                     />
                 </div>
                 <div className='submit-area'>
-                    <Button disabled={!(this.checkButton())} type='primary' onClick={e => this.submitData()}>提交评论</Button>
+                    <Button  disabled={!(this.checkButton())} type='primary' onClick={e => this.submitData()}>提交评论</Button>
                 </div>
             </CommentInputStyle>
         )
