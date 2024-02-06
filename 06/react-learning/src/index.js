@@ -2,11 +2,16 @@
 import React from 'react'
 // 导入react-dom
 import reactDOM from 'react-dom'
-// app
-import App from './19antd/App'
-
 import './style/index.scss'
 
 import 'antd/dist/antd.less';
+
+import 'bootstrap/dist/css/bootstrap.min.css';
+// css module
+// import './20react动画/alertCom.module.scss'
+// app
+import App from './20react动画/App'
+
+
 
 reactDOM.render(<App/>,document.getElementById('root'))
