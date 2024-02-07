@@ -10,7 +10,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 // css module
 // import './20react动画/alertCom.module.scss'
 // app
-import App from './20react动画/App'
+import App from './19antd/App'
 
 
 
