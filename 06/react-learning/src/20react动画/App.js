@@ -44,7 +44,7 @@ class App extends PureComponent {
         return (
             <>
                 <Container style={{paddingTop: '2rem'}}>
-                    <h1>CssTransition</h1>
+                    <h1>CssTransition 是实现css样式之前的展示</h1>
                     <ButtonArea>
                         {
                             showButton && (
@@ -60,6 +60,7 @@ class App extends PureComponent {
                         appear={true}
                         unmountOnExit={false}
                         classNames='alert'
+                        // 可以使用css module
                         // classNames={{
                         //     enter: stylecom['alert-enter'],
                         //     enterActive: stylecom['alert-enter-active'],
@@ -97,7 +98,7 @@ class App extends PureComponent {
                     </CSSTransition>
                 </Container>
                 <Container>
-                    <h1>switchTransition</h1>
+                    <h1>switchTransition 是实现组件间的切换炫酷动画</h1>
                     <div className='models'>
                         {
                             model.map((item,index) => {
@@ -105,7 +106,7 @@ class App extends PureComponent {
                                     <Form.Check
                                     key={item}
                                     id={`mode=msContentScript${item}`}
-                                    label={item}
+                                    label={item==='out-in'?'out-in'+'先出去再进入':'in-out'+'先进入再出去'}
                                     type='radio'
                                     name='mode'
                                     checked={mode === item}
@@ -116,11 +117,20 @@ class App extends PureComponent {
                             })
                         }
                     </div>
-                    {/*<SwitchTransition>*/}
-                    {/*    <CSSTransition>*/}
+                    {/*out-in 先出去 再进来 in-out*/}
+                    <SwitchTransition mode={this.state.mode}>
+                        <CSSTransition key={this.state.mode} timeout={500} classNames='fade'>
+                            <>
+                                {
+                                    this.state.mode === 'in-out'&&<Button variant='warning'>in-out</Button>
+                                }
+                                {
+                                    this.state.mode === 'out-in'&&<Button >out-in</Button>
+                                }
+                            </>
 
-                    {/*    </CSSTransition>*/}
-                    {/*</SwitchTransition>*/}
+                        </CSSTransition>
+                    </SwitchTransition>
                 </Container>
             </>
 
@@ -157,7 +167,6 @@ class App extends PureComponent {
     }
     // 切换模式
     changeModel (e) {
-        console.log(e.target.value)
         this.setState({
             mode: e.target.value
         })
