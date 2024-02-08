@@ -18,7 +18,7 @@
 /*//开始状态*/
 .alert-enter, .alert-appear{
   opacity: 0;
-  transform: scale(0.9);
+  transform: translateX(100%);
 }
 /*//开始执行动画*/
 .alert-enter-active,.alert-appear-active{
@@ -35,8 +35,8 @@
 /*// 退出中效果*/
 .alert-exit-active{
   opacity: 0;
-  transform: scale(0.9);
-  transition: opacity 300ms, transform 300ms;
+  transform: translateX(100%);
+  transition: opacity 300ms, transform 1000ms;
 }
 
 .alert-exit-done{
