@@ -11,6 +11,10 @@ import styled from "styled-components";
 
 // 使用redux
 
+// 导入组件
+import About from "../components/about";
+import My from "../components/my";
+
 import "./alert.css";
 // classNames={{
 //     enter: stylecom['alert-enter'],
@@ -28,6 +32,12 @@ const ButtonArea = styled.div`
 
 const ReduxArea = styled.div`
   margin-top: 20px;
+  .content-ay{
+    display:flex;
+    div{
+      margin-right:20px;
+    }
+  }
 `;
 
 const model = ["out-in", "in-out"];
@@ -136,6 +146,11 @@ class App extends PureComponent {
           <ReduxArea>
             <div className="redux-content">
               <h1>redux 案例</h1>
+              <hr></hr>
+              <div className="content-ay">
+                <About></About>
+                <My></My>
+              </div>
             </div>
           </ReduxArea>
         </Container>
