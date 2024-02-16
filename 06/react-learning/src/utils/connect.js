@@ -17,7 +17,6 @@ function connect(mapStateToProps, mapDispatchToProps) {
         };
       }
       render() {
-        console.log('高阶组件函数调用了');
         // 在render函数中返回传入的WrappedComponent，并且将所有的状态映射到其props中, 对象结构
         return (
           <WrapCOmponent

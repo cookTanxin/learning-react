@@ -19,7 +19,12 @@ import My from "../components/my";
 import store from "../store";
 
 // 导入provider
-import storeContext from "../utils/context";
+// import storeContext from "../utils/context";
+
+import { Provider } from 'react-redux';
+
+// action
+import { getAreaData } from "../store/actionCreators";
 
 import "./alert.css";
 // classNames={{
@@ -62,7 +67,7 @@ class App extends PureComponent {
     let { showAlert, showButton, mode } = this.state;
     return (
       <>
-        <storeContext.Provider value={store}>
+        <Provider store={store}>
           <Container style={{ paddingTop: "2rem" }}>
             <h1>CssTransition 是实现css样式之前的展示</h1>
             <ButtonArea>
@@ -163,7 +168,11 @@ class App extends PureComponent {
               </div>
             </ReduxArea>
           </Container>
-        </storeContext.Provider>
+          <Container>
+            <h1>redux 异步处理</h1>
+            <button onClick={ e => this.getAreaTaiwanData()}>获取地区数据</button>
+          </Container>
+        </Provider>
       </>
     );
   }
@@ -201,6 +210,10 @@ class App extends PureComponent {
     this.setState({
       mode: e.target.value,
     });
+  }
+  // 通过redux 获取数据
+  getAreaTaiwanData () {
+    store.dispatch(getAreaData())
   }
 }
 
