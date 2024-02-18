@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <audio id="money" src="./assets/voice.mp3"></audio>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        // 编写一个生成器函数
+        function* foo() {
+          yield "hello generator";
+          yield "hello react";
+          yield "hello vue";
+        }
+        // 返回一个迭代器对象
+        const it = foo();
+
+        let nextOne = it.next();
+        let nextTwo = it.next();
+        let nextThree = it.next();
+        let nextFive = it.next();
+        console.log(nextOne);
+        console.log(nextTwo);
+        console.log(nextThree);
+        console.log(nextFive);
+
+        // // generator 和 promise配合使用
+        // function* bar() {
+        //   const result = yield new Promise((resolve, reject) => {
+        //     axios.get("https://price.jup.ag/v4/price?ids=JUP").then((res) => {
+        //       resolve(res.data.data.JUP.price);
+        //     });
+        //   });
+        //   if (result <= 0.51) {
+        //     console.log('下手')
+        //   } else {
+        //     console.log('别买')
+        //   }
+        // }
+        // let priceIt = bar();
+        // const jupprice = priceIt.next()
+
+        const audiomoney = document.getElementById('money')
+        
+        
+        setInterval(() => {
+            axios.get("https://price.jup.ag/v4/price?ids=JUP").then((res) => {
+              if(res.data.data.JUP.price<=0.4999) {
+                console.log('准备下手')
+                audiomoney.play()
+              } else {
+                console.log('别买')
+              }
+            });
+        },1000)
+
+      });
+    </script>
+  </body>
+</html>

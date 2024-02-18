@@ -1,0 +1,17 @@
+.moneymain{
+    width: 300px;
+    height: 200px;
+    margin: 60px auto;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    .moneyInput{
+        margin-bottom: 20px;
+        display: flex;
+        .comfirmButton{
+            display: flex;
+            align-items: center;
+            margin-left: 10px;
+        }
+    }
+}

@@ -212,7 +212,7 @@ class App extends PureComponent {
     });
   }
   // 通过redux 获取数据
-  getAreaTaiwanData () {
+  getAreaTaiwanData () { 
     store.dispatch(getAreaData())
   }
 }
