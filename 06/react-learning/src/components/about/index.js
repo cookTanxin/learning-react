@@ -5,7 +5,7 @@ import { PureComponent } from "react";
 // 导入connect封装好的函数 返回一个组件
 // import connect from "../../utils/connect";
 import {connect} from 'react-redux'
-import {add_num} from '../../store/actionCreators'
+import {add_num} from '../../store/counter/actionCreators'
 class About extends PureComponent {
     render () {
         return (
@@ -30,8 +30,8 @@ class About extends PureComponent {
 
 // mapStateToProps：用于将state映射到一个对象中，对象中包含我们需要的属性；
 const mapStateToProps = (state) => ({
-    globalConter: state.globalConter,
-    areaData:state.areaData
+    globalConter: state.counterInfo.globalConter,
+    areaData:state.areaInfo.areaData
 })
 
 // mapDispatchToProps 用户将dispatch 映射到一个对象中，对象中包含在组件中可能操作的函数

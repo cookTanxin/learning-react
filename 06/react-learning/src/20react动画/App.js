@@ -24,7 +24,7 @@ import store from "../store";
 import { Provider } from 'react-redux';
 
 // action
-import { getAreaData } from "../store/actionCreators";
+import { getAreaData } from "../store/area/actionCreators";
 
 import "./alert.css";
 // classNames={{

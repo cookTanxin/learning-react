@@ -1,14 +1,6 @@
-import { ADD_NUM, ADD_AREA } from "./constant";
 import axios from "axios";
+import { ADD_AREA } from "./constant";
 import { message } from "antd";
-console.log(message);
-// 全局加法
-export const add_num = (num) => {
-  return {
-    type: ADD_NUM,
-    num,
-  };
-};
 // 添加区域数据
 export const add_area = (areadata) => {
   return {

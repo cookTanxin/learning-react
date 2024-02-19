@@ -6,7 +6,7 @@ export default class My extends PureComponent {
     constructor(props) {
         super(props)
         this.state = {
-            counter:store.getState().globalConter
+            counter:store.getState().counterInfo.globalConter
         }
     }
     render () {
@@ -20,7 +20,7 @@ export default class My extends PureComponent {
     componentDidMount() {
         this.unsubscribe = store.subscribe(() => {
             this.setState({
-                counter:store.getState().globalConter
+                counter:store.getState().counterInfo.globalConter
             })
         })
     }
