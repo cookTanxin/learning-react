@@ -1,21 +1,43 @@
-import React, { Component } from 'react'
-import {HashRouter,BrowserRouter,Link,Route,Routes} from 'react-router-dom'
+import React, { Component } from "react";
+import { Route, NavLink,Switch,withRouter } from "react-router-dom";
 // 导入页面组件
-import Home from '../pages/home'
-import About from '../pages/about'
-export default class App extends Component {
+import Home from "../pages/home";
+import About from "../pages/about";
+import NotePage from './404'
+import My from './my'
+import Login from './login'
+import Product from '../pages/product'
+import ProductDetail from '../pages/product/productDetail'
+import "./style/index.scss";
+ class App extends Component {
   render() {
     return (
-        <BrowserRouter>
-            <Link to='/home'>首页</Link>
-            <Link to='/about'>关于我们</Link>
-
-            {/* Router 用于路径匹配 渲染对应的组件 */}
-            <Routes>
-                <Route exact  path='/home' element={<Home></Home>}></Route>
-                <Route exact  path='/about' element={<About></About>}></Route>
-            </Routes>
-        </BrowserRouter>
-    )
+      <>
+        <div className="nav-contntstyle">
+          <NavLink to="/home" exact activeClassName="nav-active">
+            首页
+          </NavLink>
+          <NavLink to="/about"   activeClassName="nav-active">
+            关于我们
+          </NavLink>
+          <NavLink to='/my'  activeClassName='nav-active'>我的</NavLink>
+          <NavLink to='/product'  activeClassName='nav-active'>商品</NavLink>
+        </div>
+        {/* Router 用于路径匹配 渲染对应的组件 */}
+        <Switch>
+          <Route  path="/home" component={Home}></Route>
+          <Route  path="/about" component={About}></Route>
+          <Route path='/my' component={My}></Route>
+          <Route path='/login' component={Login}></Route>
+          <Route exact path='/product' component={Product}></Route>
+          <Route path='/product/productDetail/:id' component={ProductDetail}></Route>
+          <Route path='*' component={NotePage}></Route>
+        </Switch>
+        
+      </>
+    );
   }
 }
+
+
+export default withRouter(App)
