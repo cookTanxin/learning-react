@@ -1,5 +1,5 @@
 import React, { PureComponent } from 'react'
-
+import {NavLink} from 'react-router-dom'
 export default class Product extends PureComponent {
     constructor(props) {
         super(props)
@@ -18,7 +18,14 @@ export default class Product extends PureComponent {
             {
                 this.state.productList.map((item,index) => {
                     return (
-                        <li key={index} onClick={e => this.goDetial(item)}>{item.name}</li>
+                        <li key={index}>
+                          <NavLink to={{
+                            pathname:'/product/productDetail/'+item.id,
+                            query:{name:'product',ids:item.id},
+                            state:{formData:true},
+                            search:'?keys=chengdu&name=wenfu'
+                          }}>{item.name}</NavLink>
+                        </li>
                     )
                 })
             }
