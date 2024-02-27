@@ -40,8 +40,9 @@ export default class App extends Component{
   }
   // 改变数据
   changeData (e) {
+    let count = this.state.count
     this.setState({
-      count: this.state.count+=1,
+      count: count+=1,
       isShowSon: !this.state.isShowSon
     })
     console.log('事件对象',e.type)

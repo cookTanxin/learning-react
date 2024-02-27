@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Route, NavLink,Switch,withRouter } from "react-router-dom";
+import { Route, NavLink,Switch,withRouter,Redirect } from "react-router-dom";
 // 导入页面组件
 import Home from "../pages/home";
 import About from "../pages/about";
@@ -8,6 +8,9 @@ import My from './my'
 import Login from './login'
 import Product from '../pages/product'
 import ProductDetail from '../pages/product/productDetail'
+import {renderRoutes} from 'react-router-config'
+// 导入路由配置
+import routers from '../router/index'
 import "./style/index.scss";
  class App extends Component {
   render() {
@@ -24,7 +27,7 @@ import "./style/index.scss";
           <NavLink to='/product'  activeClassName='nav-active'>商品</NavLink>
         </div>
         {/* Router 用于路径匹配 渲染对应的组件 */}
-        <Switch>
+        {/* <Switch>
           <Route  path="/home" component={Home}></Route>
           <Route  path="/about" component={About}></Route>
           <Route path='/my' component={My}></Route>
@@ -32,10 +35,19 @@ import "./style/index.scss";
           <Route exact path='/product' component={Product}></Route>
           <Route path='/product/productDetail/:id' component={ProductDetail}></Route>
           <Route path='*' component={NotePage}></Route>
-        </Switch>
+        </Switch> */}
+
+        {/* 使用react-router-config */}
+        {renderRoutes(routers)}
         
       </>
     );
+  }
+  componentDidMount(){
+    console.log(this.props.match)
+    if(this.props.history.location.pathname === '/') {
+      this.props.history.replace('/home')
+    } 
   }
 }
 

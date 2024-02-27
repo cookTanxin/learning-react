@@ -25,6 +25,7 @@ export default class ProductDetail extends PureComponent {
     )
   }
   componentDidMount(){
+    console.log('first')
     console.log(this.props.match);
     console.log(this.props.history)
     const searchObject = parseQueryString(this.props.location.search.substring(1));
