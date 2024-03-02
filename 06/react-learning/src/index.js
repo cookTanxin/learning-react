@@ -1,5 +1,5 @@
 // 导入react
-import React from "react";
+import React, { StrictMode } from "react";
 // 导入react-dom
 import reactDOM from "react-dom";
 import "./style/index.scss";
@@ -10,7 +10,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 // css module
 // import './20react动画/alertCom.module.scss'
 // app
-import App from "./21reactRoute/App";
+import App from "./26usememo/App";
 
 import { BrowserRouter } from "react-router-dom";
 
