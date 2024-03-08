@@ -9,7 +9,7 @@ export default function Ccom() {
     <div>
       <p>c组件 本地存储数据</p>
       <h1>{data}</h1>
-      <button onClick={(e) => setNamelocalstorage(Math.random())}>
+      <button onClick={(e) => setNamelocalstorage(Math.random().toFixed(2))}>
         存储数据
       </button>
     </div>
