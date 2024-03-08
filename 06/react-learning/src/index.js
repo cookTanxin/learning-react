@@ -10,7 +10,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 // css module
 // import './20react动画/alertCom.module.scss'
 // app
-import App from "./28forwardRef/App";
+import App from "./29customHook/App";
 
 import { BrowserRouter } from "react-router-dom";
 
